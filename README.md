@@ -8,8 +8,8 @@ If you use Debian/Ubuntu you can use the packaged [deb](https://github.com/AdamD
 #### Usage: 
 ![cf usage ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_usage_ss_1.png)
 
-##### Man page:
+#### Man page:
 ![cf man page](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_man_ss_1.png)
 
-##### Screenshot: 
+#### Screenshot: 
 ![cf ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_ss_1.png)
