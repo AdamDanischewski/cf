@@ -3,7 +3,7 @@
 
 #### Installation: 
 You can install cf via the included `install.bsh`.<br>
-If you use Debian/Ubuntu you can use the packaged [deb](https://github.com/AdamDanischewski/cf/raw/debian/cf_1.0_all.deb)
+If you use Debian/Ubuntu you can use the packaged [deb](https://github.com/AdamDanischewski/cf/raw/debian/cf_head_all.deb)
 
 #### Usage: 
 ![cf usage ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_usage_ss_1.png)
