@@ -6,23 +6,31 @@
 ## GitHub: https://github.com/AdamDanischewski/cf
 ## Created: 2019-11-12
 ## Name: colorfiles.awk
-## Version: v1.00
-## Last Modified: 2019-11-18
+## Version: v1.01
+## Last Modified: 2019-11-22
 ## Issues: If you find any issues emai1 me at <my first name> (dot) 
 ##         <my last name> (at) gmail (dot) com. 
 ##
 ## Requirements: gawk 
 ## 
 ## Allows the user to fine tune and customize their color scheme for 
-## files. LS_COLORS only allows for a small subset of file types. This 
-## script allows specific colors for all files via pipelines to color 
-## filenames, directories and links. 
+## ls/find and any other utility that produces filenames for display on 
+## the commandline. 
+##
+## Why not just use ls --color via LS_COLORS? First ls --color doesn't 
+## color piped filename data. cf is better documented and easier to 
+## configure than LS_COLORS and allows the user to hit the ground 
+## running with sensible defaults. 
+##
+## This script allows specific sRGB colors for any file extension and 
+## has special logic for links, hidden files/dirs, directories and 
+## executables. (See man cf and man cf_config for information). 
 ## 
 ## The default configuration file is located at: 
-## /opt/cf_colorfiles/cf_default_config.awk
+## /etc/cf/cf_default.conf
 ## 
 ## User defined config file is located at (not installed by default): 
-## ~/.config/cf_colorfiles/cf_config.awk 
+## ~/.config/cf/cf_user.conf
 ## 
 ## To customize filename colors copy the default file extension color 
 ## mapping config (cf -C) and edit as you wish. 
