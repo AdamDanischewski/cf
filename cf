@@ -5,8 +5,8 @@
 ## Author: Adam Michael Danischewski     
 ## GitHub: https://github.com/AdamDanischewski/cf
 ## Created: 2019-11-12
-## Version: v1.01
-## Last Modified: 2019-11-21
+## Version: v1.02
+## Last Modified: 2019-11-22
 ## Issues: If you find any issues emai1 me at <my first name> (dot) 
 ##         <my last name> (at) gmail (dot) com. 
 ## 
@@ -123,8 +123,8 @@ USAGE=$(cat<<EOF
        ${USAGE_COLOR2}-R|--remove${ENDCOLOR}  -  ${USAGE_COLOR7}Removes <ls alias> from ~/{.bashrc,.zshrc}${ENDCOLOR}
                         (For Bash/Zsh users.)
        ${USAGE_COLOR2}-C|--create${ENDCOLOR}  -  ${USAGE_COLOR7}Creates user configuration file.${ENDCOLOR}
-                        Generates ~/.config/cf/cf_user.conf 
-                        then edit (see man cf_config) to your preferences.                       
+                        Generates ~/.config/cf/cf_user.conf, that the user may  
+                        edit to their preferences. (See man cf_config)                        
       ${USAGE_COLOR2}-V|--version${ENDCOLOR}  -  ${USAGE_COLOR7}Prints cf version number.${ENDCOLOR}
   
         ${USAGE_COLOR2}<ls alias>${ENDCOLOR}  -  ${USAGE_COLOR7}alias ls='_(){ /bin/ls -F -1 -A "\$@"|cf|column;};_'${ENDCOLOR}         
@@ -138,8 +138,8 @@ USAGE=$(cat<<EOF
           ~/.config/cf/cf_user.conf
  
   ${USAGE_COLOR3}Note: You are encouraged to script your own aliases/functions w/cf.${ENDCOLOR}  
-        ${USAGE_COLOR5}Eg. /bin/ls | cf   
-        Eg. find "\$(pwd)" -maxdepth 1 -type f -printf "%T@\\\\t%Tc %f\\\\n" \\ 
+        ${USAGE_COLOR5} Eg. /bin/ls | cf   
+         Eg. find "\$(pwd)" -maxdepth 1 -type f -printf "%T@\\\\t%Tc %f\\\\n" \\ 
              2>/dev/null|sort -n|cut -f 2-|tail -50|cf${ENDCOLOR}
              
 EOF
