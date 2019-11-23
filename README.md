@@ -1,4 +1,5 @@
-![cf Version Shield](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=version&query=tag_name&url=https%3A%2F%2Fapi.github.com%2Frepos%2FAdamDanischewski%2Fcf%2Freleases%2Flatest)
+![cf Version Shield](https://img.shields.io/badge/dynamic/json?color=brightgreen&style=plastic&logo=GitHub&label=version&query=tag_name&url=https%3A%2F%2Fapi.github.com%2Frepos%2FAdamDanischewski%2Fcf%2Freleases%2Flatest) [![cf deb package available](https://img.shields.io/badge/deb-package-orange?style=plastic&logo=Ubuntu)](https://api.github.com/repos/AdamDanischewski/cf/releases/latest)
+
 # cf 
 ### cf custom colors piped filenames w/Truecolor sRGB 
 
