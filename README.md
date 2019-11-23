@@ -1,4 +1,5 @@
-# cf
+![cf Version Shield](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=version&query=tag_name&url=https%3A%2F%2Fapi.github.com%2Frepos%2FAdamDanischewski%2Fcf%2Freleases%2Flatest)
+# cf 
 ### cf custom colors piped filenames w/Truecolor sRGB 
 
 #### Installation: 
