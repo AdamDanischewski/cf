@@ -5,18 +5,18 @@
 ## Author: Adam Michael Danischewski     
 ## GitHub: https://github.com/AdamDanischewski/cf
 ## Created: 2019-11-12
-## Version: v1.03
-## Last Modified: 2019-11-23
+## Version: v1.04
+## Last Modified: 2019-11-24
 ## Issues: If you find any issues emai1 me at <my first name> (dot) 
 ##         <my last name> (at) gmail (dot) com. 
 ## 
 ## Description: cf shell wrapper for /usr/bin/colorfiles
 ##
 ## The default system wide cf configuration file is located at: 
-## /etc/cf/cf_default.conf
+##  /etc/cf/cf_default.conf
 ## 
 ## User defined configurations should be placed (not installed by def.): 
-## ~/.config/cf/cf_user.conf
+##  ~/.config/cf/cf_user.conf
 ## 
 ## To customize filename colors copy the default configuration to the 
 ## user defined location, run cf -C to generate a user config file. 
@@ -31,10 +31,10 @@
  #######################################################################
 
 VERSION=1.0 
-COLORFILES_PROG="/usr/bin/colorfiles"
+COLORFILES_PROG="/usr/lib/colorfiles"
 DEFAULT_CF_CONFIG="/etc/cf/cf_default.conf"
 USER_CF_CONFIG="${HOME}/.config/cf/cf_user.conf"
-DISCARD_DEV=/dev/random
+DISCARD_DEV=/dev/random 
 
 if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then  
  STARTCOLOR="\033[38;2;"  ## ANSI TrueColor RGB triplet prefix 
