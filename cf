@@ -58,7 +58,7 @@ if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then
 	alias ls='_(){ /bin/ls -F -1 -A "\$@"|cf${COLUMN_PIPE};};_'
 	EOF
     printf "%s\n" "Added cf based ls alias to ~/.bashrc." 
-    printf "%s\n" "Source ~/.bashrc or start a new bash shell for your new ls to take effect."
+    printf "%s\n" "Source ~/.bashrc or start a new bash shell for your new ls alias to take effect."
   else 
     printf "%s\n" "Alias already present in ~/.bashrc."
   fi 
@@ -67,7 +67,7 @@ if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then
 	alias ls='_(){ /bin/ls -F -1 -A "\$@"|cf${COLUMN_PIPE};};_'
 	EOF
     printf "%s\n" "Added cf based ls alias to ~/.zshrc." 
-    printf "%s\n" "Source ~/.zshrc or start a new zsh shell for your new ls to take effect."
+    printf "%s\n" "Source ~/.zshrc or start a new zsh shell for your new ls alias to take effect."
   else 
    printf "%s\n" "Alias already present in ~/.zshrc."
   fi   
@@ -99,6 +99,7 @@ if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then
     "$SED_PROG" -ri -- '\,^[^#]*alias ls=\x27_\(\)\{ /bin/ls -F -1 -A "\x5c\x24\x5c\x40"\|cf([|]column)?;};_\x27,d' ~/.zshrc 
      printf "%s\n" "Removed cf based ls alias, for user (${USER}), from ~/.zshrc."     
   fi 
+  printf "%s\n" "You may want to run, unalias ls, to unset the existing ls alias." 
   exit 0
  elif expr "${1}" : '-ls'>"$DISCARD_DEV"; then   
   shift
