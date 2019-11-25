@@ -52,8 +52,8 @@ else
  sudo "$MKDIR_CMD" -p /etc/cf  
  echo "Copying default cf config ..." 
  sudo "$CP_CMD" ./cf_default.conf /etc/cf/
- sudo "$CP_CMD" cf.1.gz /usr/share/man/man1/
- sudo "$CP_CMD" cf_config.1.gz /usr/share/man/man1/
+ sudo "$(type -P gzip)" -9 -n cf.1 cf_config.1 2>/dev/random
+ sudo "$CP_CMD" cf.1.gz cf_config.1.gz /usr/share/man/man1/
  echo "Done! Trying running cf -?" 
 fi 
 
