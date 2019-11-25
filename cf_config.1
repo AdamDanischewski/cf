@@ -1,0 +1,210 @@
+.\" Manpage for cf_config (colorfiles).
+.\" Contact adam.danischewski@protonmail.com to correct errors or typos.
+.TH CF_CONFIG 1 "21 Nov 2019" "1.0" "User Commands"
+.SH NAME
+cf_config \- cf configuration files
+.SH SYNOPSIS
+.PP
+cf utilizes a system wide config file and optionally a user defined   
+.br 
+config file. 
+.br
+
+The system wide defaults may be changed by editing: 
+.br 
+.BI 
+.I /etc/cf/cf_default.conf
+.br
+
+.br
+
+Users can override system wide definitions by editing the user-defined  
+.br
+config file, located at: 
+.I ~/.config/cf/cf_user.conf
+.br 
+
+To start customizing first create a user config file using: cf -C
+.br 
+.SH DESCRIPTION
+.PP
+.br 
+cf colorizes mapped file extensions to a Truecolor sRGB triplet.  
+.PP
+cf colors piped file names by file extension according to their respective 
+.br
+colormap entry in the system-wide or user defined cf config file. 
+.PP
+The main program is /usr/bin/colorfiles, the system-wide default config 
+.br
+file is read first and thereafter - if a user config file exists - it
+.br
+is read second. 
+.br
+
+.br
+* Valid values for colormap["ext"] entries are quoted semicolon 
+.br
+  separated sRGB triplets or a previously defined colormap entry. 
+.br
+  "[0-255];[0-255];[0-255]" -or- colormap["ext"] 
+.br
+
+.br
+* For previously defined colormap["ext"] entries you may utilize any 
+.br
+  existing uncommented entries in this file or in the system-wide 
+.br
+  default config file without redeclaring their initialization. For 
+.br
+  convenience all system default values are included in commented form.  
+.br
+  Any system-wide color mappings after the user-defined config file was 
+.br
+  generated will not be present in the user config file. If you add a 
+.br
+  default related to a new system-wide default entry it's recommended 
+.br
+  that you add a comment containing the associated sRGB triplet value 
+.br
+
+.br
+* File extensions must be lowercase. cf uses case insensitive 
+.br
+  matching that relies on lowercasing file extensions. file.JpG and 
+.br
+  file.jpg both match colormap["jpg"]
+.br
+
+.br
+* File extensions may have two components, the penultimate component 
+.br
+  can be up to 5 characters long, the final component when a 
+.br
+  penultimate component exists is up to 5 characters long. 
+.br
+  For example - if you have colormap["abcde.12345"]; a file named 
+.br
+  testing.abcde.12345 would match that colormap entry. A file named 
+.br
+  testing.abcdef.1234 would match colormap["1234"]. A file named 
+.br
+  testing.a.12345678  would have a colormap hit on colormap["12345678"] 
+.br
+
+.br
+* If no penultimate component exists the file extension may be up to 
+.br
+  10 characters long. file.ABCDE12345 matches colormap["abcde12345"] 
+.br
+
+.br
+The following functionalities can be turned off by setting its 
+.br
+respective lookup value to the empty string: eg. colormap["dir"]="" 
+.br
+
+.br
+* Files ending w/an "@" symbol -or- containing the string "->" within 
+.br
+  their filename are treated as symbolic links and colored according to 
+.br
+  the colormap["links"] entry
+.br
+
+.br
+* Files beginning with a "." are treated as a hidden file and 
+.br
+  colored according to the colormap["hidden"] entry
+.br
+
+.br
+* Files ending with a "*" are treated as an executable file and 
+.br
+  colored according to the colormap["executable"] entry
+.br
+
+.br
+* Files ending with a "/" are treated as a directory and 
+.br
+  colored according to the colormap["dirs"] entry
+.br
+
+.br
+The aforementioned above functionalities, except dir, also have a 
+.br
+respective fallback entry prefixed with "fb_". For instance - 
+.br
+colormap["fb_links"] is the fallback entry for colormap["links"]. 
+.br
+
+The fallback logic only colors files if an extension match has not 
+.br
+already been found. The precedence order for fallback logic is 
+.br 
+executables then hidden then links. 
+.br   
+.SH TIPS 
+You may run cf without options or anything piped in to start a 
+.br  
+session that will echo back colorings to whatever filenames you type 
+.br  
+in. This is useful while configuring your custom cf_user.conf file. 
+   
+.SH CAVEATS
+When editing config files make sure that you don't turn off a 
+.br
+colormap entry and then assign the entry by reference to a new 
+.br 
+colormap entry. 
+.br 
+  
+.br 
+For instance, if in your user config you have a line that looks like:  
+.br   
+ colormap["hidden"]=""
+.br 
+
+Make sure thereafter you don't include a line like: 
+.br   
+ colormap["fb_hidden"]=colormap["hidden"]  
+.br 
+
+If you were expecting the fb_hidden functionality to be turned on and 
+.br 
+set to a former color value of colormap["hidden"] in the default config. 
+.br 
+
+.PP 
+The 'BEGIN {' starting at the top and '}' at the end of the config 
+.br
+files are necessary. This is ultimately an awk program and we only 
+.br
+want to set the mappings once per run so don't remove them. 
+.br
+    
+.SH FILES
+.I /etc/cf/cf_default.conf
+.\".RS
+.sp .01i
+Default system wide configuration file.
+.\".RE 
+.sp .25i
+.I ~/.config/cf/cf_user.conf
+.\".RS
+.sp .01i
+User configuration file. 
+.\".RE
+.SH "SEE ALSO"
+.RI
+cf(1)
+.SH BUGS
+Extensions with spaces are problematic. 
+.br 
+No known bugs. Report Bugs to adam.danischewski@protonmail.com
+.SH COPYRIGHT
+Copyright Creative Commons
+.br
+CC BY-SA 4.0  - (https://creativecommons.org/licenses/by-sa/4.0/)
+.SH AUTHOR
+Adam Danischewski (adam.danischewski@protonmail.com)

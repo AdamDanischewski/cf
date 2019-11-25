@@ -1,0 +1,67 @@
+.\" Manpage for cf (colorfiles).
+.\" Contact adam.danischewski@protonmail.com to correct errors or typos.
+.TH CF 1 "14 Nov 2019" "1.0" "User Commands"
+.SH NAME
+cf \- colors filenames via pipe
+.SH SYNOPSIS
+cf  [-?|-h|-ls|-A|-R|-C|-V]
+.SH DESCRIPTION
+.PP
+cf improves the commandline user experience by adding extensive filename 
+.br 
+coloring capabilities via pipelines. cf colorizes mapped file extensions 
+.br 
+to a Truecolor sRGB triplet.  
+.PP
+cf colors piped file names by file extension according to their respective 
+.br
+colormap["ext"] entry in the system-wide or user defined cf config file. 
+.PP
+cf can be used in with find/ls commands in pipelines. 
+.PP 
+If you get used to using cf you will likely find it very difficult to 
+.br 
+imagine not using cf!!
+.br
+.SH OPTIONS
+.IP -?|-h 15n
+- Help
+.IP -ls 15n
+- Test drive <ls alias> in current shell. 
+.IP -A|--add 15n
+- Adds <ls alias> to ~/{.bashrc,.zshrc}
+  (For Bash/Zsh users.)
+.IP -R|--remove 15n
+- Removes <ls alias> from ~/{.bashrc,.zshrc}
+  (For Bash/Zsh users.)
+.IP -C|--create 15n
+- Creates a user-defined configuration file.
+  Generates ~/.config/cf/cf_user.conf that the user can edit 
+  (see man cf_config) to their preferences.  
+.IP -V|--version 15n
+- Prints cf version number.
+.IP "<ls alias>" 15n
+- alias ls='_(){ /bin/ls -F -1 -A "$@"|cf|column;};_'
+.SH FILES
+.I /etc/cf/cf_default.conf
+.\".RS
+.sp .01i
+Default system wide configuration file.
+.\".RE 
+.sp .25i
+.I ~/.config/cf/cf_user.conf
+.\".RS
+.sp .01i
+User configuration file. 
+.\".RE
+.SH "SEE ALSO"
+.RI
+cf_config(1)
+.SH BUGS
+No known bugs. Report Bugs to adam.danischewski@protonmail.com
+.SH COPYRIGHT
+Copyright Creative Commons
+.br
+CC BY-SA 4.0  - (https://creativecommons.org/licenses/by-sa/4.0/)
+.SH AUTHOR
+Adam Danischewski (adam.danischewski@protonmail.com)
