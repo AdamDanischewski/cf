@@ -1,0 +1,9 @@
+cf (1.0) all; urgency=low
+
+   * debian/rules:
+     - Initial Release (Closes IPT: #945373)
+   
+   *cf colorizes filenames on the commandline via pipes.
+   Enhances user commandline experience.
+
+ -- Adam Danischewski <adam.danischewski@protonmail.com>  Sun, 24 Nov 2019 00:37:31 +0100

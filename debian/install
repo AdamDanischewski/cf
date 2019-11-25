@@ -1,0 +1,3 @@
+cf usr/bin/
+colorfiles usr/lib/
+cf_default.conf etc/cf/

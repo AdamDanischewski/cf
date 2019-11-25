@@ -1,0 +1,16 @@
+Source: cf
+Section: utils
+Priority: optional
+Maintainer: Adam Danischewski <adam.danischewski@protonmail.com>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.0
+Homepage: https://github.com/AdamDanischewski/cf
+#Vcs-Browser: https://salsa.debian.org/debian/cf
+#Vcs-Git: https://salsa.debian.org/debian/cf.git
+
+Package: cf
+Architecture: all
+Depends: gawk
+Description: Enhanced commandline user experience - extensively colorizes piped filenames.
+ Dynamically colors filenames in TrueColor sRGB to user preference.
+

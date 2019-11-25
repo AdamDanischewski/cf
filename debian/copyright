@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: cf
+Source: https://github.com/AdamDanischewski/cf
+
+Files: *
+Copyright: 2019 Adam Danischewski <adam.danischewski@protonmail.com>
+License: Creative Commons License, CC BY-SA 4.0
+https://creativecommons.org/licenses/by-sa/4.0/
