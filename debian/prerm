@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e +e
+
+ ## Just making sure that on removal that there are no lingering 
+ ## aliases that cf created. 
+declare each=""
+declare user=""
+for each in root /home/*; do 
+ user="$(basename "$each")"
+ "$(type -P sudo)" -u "$user" /usr/bin/cf -R 2>/dev/random
+done
+exit 0

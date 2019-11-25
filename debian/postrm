@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+builtin echo -en "\033[38;2;175;0;95m"
+cat<<EOF 
+** Make sure to manually remove any cf based user-defined aliases and/or 
+   functions. If you had a problem with cf, please let me know at  
+   adam.danischewski@protonmail.com. Thanks for trying!! 
+EOF
+builtin echo -en "\033[0m"
+
+exit 0
