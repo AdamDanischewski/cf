@@ -1,3 +1,9 @@
+cf (1.0) all; urgency=medium
+
+  Added prerm/postrm scripts.
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Mon, 25 Nov 2019 18:46:28 -0500
+
 cf (1.0) all; urgency=low
 
    * debian/rules:
