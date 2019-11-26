@@ -1,3 +1,9 @@
+cf (1.0) unstable; urgency=low
+
+  Changed distro target to unstable. Urgency to low.
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Mon, 25 Nov 2019 21:24:28 -0500
+
 cf (1.0) all; urgency=medium
 
   Added prerm/postrm scripts.
