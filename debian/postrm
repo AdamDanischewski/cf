@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#DEBHELPER#
+
 set -e
 builtin echo -en "\033[38;2;175;0;95m"
 cat<<EOF 

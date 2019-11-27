@@ -1,20 +1,75 @@
-cf (1.0) unstable; urgency=low
+cf (1.0-7+nmu1) unstable; urgency=low
+
+  * NMU. Fixing Lintian problems. Added metadata, fixed trailing whitespace.
+  * Initial release (Closes IPT: #945373)
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Wed, 27 Nov 2019 09:47:28 -0500
+
+cf (1.0-6+nmu1) unstable; urgency=low
+
+  * NMU. Fixing Lintian problems. Fixed upload orig omitted issue.
+  * Initial release (Closes IPT: #945373)
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Wed, 27 Nov 2019 09:47:28 -0500
+
+cf (1.0-5+nmu1) unstable; urgency=low
+
+  * NMU. Fixing Lintian problems. The copyright was updated and formatted.
+  * Initial release (Closes IPT: #945373)
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Wed, 27 Nov 2019 08:28:28 -0500
+
+cf (1.0-4+nmu1) unstable; urgency=low
+
+  Fixing Lintian problems. The rules file was modified again, and
+  the version was modified.
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Wed, 27 Nov 2019 00:48:28 -0500
+
+cf (1.0-3) unstable; urgency=low
+
+  NMU. Fixed some stuff that the mentors.debian.net lintian found.
+  The main problem was a Lintian error regarding
+  debian-rules-is-dh_make-template, which was discussed here:
+  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=890660
+  The rules file was modified accordingly.
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Tue, 26 Nov 2019 23:36:28 -0500
+
+cf (1.0-2) unstable; urgency=low
+
+  Changed version to 1.0-2, because the previous dput upload to mentors
+  did not include the cf_1.0.orig.tar.gz file although it was in the dir
+  and included in the dsc file but not the changes file.
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Mon, 25 Nov 2019 23:19:28 -0500
+
+cf (1.0-1) unstable; urgency=low
+
+  Changed version to 1.0-1, per recommendations from #debian-mentors irc
+  channel. Because the previous dput upload to mentors did not include
+  the cf_1.0.orig.tar.gz file although it was in the dir and included in
+  the dsc file.
+
+ -- Adam Danischewski <adam.danischewski@proton.mail>  Mon, 25 Nov 2019 22:41:28 -0500
+
+cf (1.0-0) unstable; urgency=low
 
   Changed distro target to unstable. Urgency to low.
 
  -- Adam Danischewski <adam.danischewski@proton.mail>  Mon, 25 Nov 2019 21:24:28 -0500
 
-cf (1.0) all; urgency=medium
+cf (1.0-0) all; urgency=medium
 
   Added prerm/postrm scripts.
 
  -- Adam Danischewski <adam.danischewski@proton.mail>  Mon, 25 Nov 2019 18:46:28 -0500
 
-cf (1.0) all; urgency=low
+cf (1.0-0) all; urgency=low
 
    * debian/rules:
      - Initial Release (Closes IPT: #945373)
-   
+
    *cf colorizes filenames on the commandline via pipes.
    Enhances user commandline experience.
 

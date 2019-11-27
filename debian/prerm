@@ -2,6 +2,8 @@
 
 set -e +e
 
+#DEBHELPER#
+
  ## Just making sure that on removal that there are no lingering 
  ## aliases that cf created. 
 declare each=""
