@@ -57,19 +57,19 @@ if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then
 	cat<<-EOF >> ~/.bashrc
 	alias ls='_(){ /bin/ls -F -1 -A "\$@"|cf${COLUMN_PIPE};};_'
 	EOF
-    printf "%s\n" "Added cf based ls alias to ~/.bashrc." 
-    printf "%s\n" "Source ~/.bashrc or start a new bash shell for your new ls alias to take effect."
+    printf "${USAGE_COLOR5}%s${ENDCOLOR}\n" "Added cf based ls alias to ~/.bashrc." 
+    printf "${USAGE_COLOR3} %s${ENDCOLOR}\n" "Source ~/.bashrc or start a new bash shell for your new ls alias to take effect."
   else 
-    printf "%s\n" "Alias already present in ~/.bashrc."
+    printf "${USAGE_COLOR3}%s${ENDCOLOR}\n" "Alias already present in ~/.bashrc."
   fi 
   if ! "$GREP_PROG" -Pq -- "${ALIAS_CHK}" ~/.zshrc; then 
 	cat<<-EOF >> ~/.zshrc
 	alias ls='_(){ /bin/ls -F -1 -A "\$@"|cf${COLUMN_PIPE};};_'
 	EOF
-    printf "%s\n" "Added cf based ls alias to ~/.zshrc." 
-    printf "%s\n" "Source ~/.zshrc or start a new zsh shell for your new ls alias to take effect."
+    printf "${USAGE_COLOR5}%s${ENDCOLOR}\n" "Added cf based ls alias to ~/.zshrc." 
+    printf "${USAGE_COLOR3} %s${ENDCOLOR}\n" "Source ~/.zshrc or start a new zsh shell for your new ls alias to take effect."
   else 
-   printf "%s\n" "Alias already present in ~/.zshrc."
+   printf "${USAGE_COLOR3}%s${ENDCOLOR}\n" "Alias already present in ~/.zshrc."
   fi   
   exit 0
  elif "$GREP_PROG" -Eq '^(-C|--create)$' <<< "${1}"; then 
@@ -89,17 +89,24 @@ if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then
   fi
   exit 0
  elif "$GREP_PROG" -Eq '^(-R|--remove)$' <<< "${1}"; then 
+  REMOVED_ALIAS=0
   if [[ -f ~/.bashrc ]] && "$GREP_PROG" -Pq -- "${ALIAS_CHK}" ~/.bashrc; then 
       ## Remove our alias whether created with column or not. 
     "$SED_PROG" -ri -- '\,^[^#]*alias ls=\x27_\(\)\{ /bin/ls -F -1 -A "\x5c\x24\x5c\x40"\|cf([|]column)?;};_\x27,d' ~/.bashrc 
-     printf "%s\n" "Removed cf based ls alias, for user (${USER}), from ~/.bashrc."     
+     printf "${USAGE_COLOR5}%s${ENDCOLOR}\n" "Removed cf based ls alias, for user (${USER}), from ~/.bashrc."     
+     REMOVED_ALIAS=1
   fi 
   if [[ -f ~/.zshrc ]] && "$GREP_PROG" -Pq -- "${ALIAS_CHK}" ~/.zshrc; then 
       ## Remove our alias whether created with column or not. 
     "$SED_PROG" -ri -- '\,^[^#]*alias ls=\x27_\(\)\{ /bin/ls -F -1 -A "\x5c\x24\x5c\x40"\|cf([|]column)?;};_\x27,d' ~/.zshrc 
-     printf "%s\n" "Removed cf based ls alias, for user (${USER}), from ~/.zshrc."     
+     printf "${USAGE_COLOR5}%s${ENDCOLOR}\n" "Removed cf based ls alias, for user (${USER}), from ~/.zshrc."     
+     REMOVED_ALIAS=1
   fi 
-  printf "%s\n" "You may want to run, unalias ls, to unset the existing ls alias." 
+  if ((REMOVED_ALIAS)); then 
+   printf "${USAGE_COLOR3}%s${ENDCOLOR}\n" "You may want to run, unalias ls, to unset the existing ls alias." 
+  else 
+   printf "${USAGE_COLOR3}%s${ENDCOLOR}\n" "** No cf-generated aliases found!!" 
+  fi    
   exit 0
  elif expr "${1}" : '-ls'>"$DISCARD_DEV"; then   
   shift
