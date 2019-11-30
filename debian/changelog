@@ -1,3 +1,12 @@
+cf (1.0-9) unstable; urgency=low
+
+  * Updated copyright formatting on man pages, added colorization to
+  * text for cf [-R|-A] command options. Changed usage example,
+  * added examples section to the cf man page.
+  * Initial release (Closes IPT: #945373)
+
+ -- Adam Danischewski <adam.danischewski@protonmail.com>  Sat, 30 Nov 2019 17:36:28 -0500
+
 cf (1.0-8+nmu1) unstable; urgency=low
 
   * NMU. Fixing Lintian problems. Fixed changelog issue.
