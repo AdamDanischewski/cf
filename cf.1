@@ -42,6 +42,22 @@ imagine not using cf!!
 - Prints cf version number.
 .IP "<ls alias>" 15n
 - alias ls='_(){ /bin/ls -F -1 -A "$@"|cf|column;};_'
+.SH EXAMPLES 
+.PP
+The following mimicks /bin/ls -F (classify) that cf utilizes to determine how 
+.br 
+to color special files (links, directories and executables):  
+.sp .09i
+ find . -maxdepth 1 \\( -type l -printf "%f@\\n" -o -type d -printf "%f/\\n" \\ 
+        -o -executable -printf "%f*\\n" -o -printf "%f\\n" \\)|cf
+.br
+
+The following will quickly print files in the current dir, in a star globbing 
+.br
+shell (eg. Bash/Zsh): 
+.sp .09i
+ printf "%s\\n" *|cf      
+.br
 .SH FILES
 .I /etc/cf/cf_default.conf
 .\".RS
@@ -60,8 +76,8 @@ cf_config(1)
 .SH BUGS
 No known bugs. Report Bugs to adam.danischewski@protonmail.com
 .SH COPYRIGHT
-Copyright Creative Commons
+Copyright ©2019 Adam Danischewski, CC BY-SA 4.0
 .br
-CC BY-SA 4.0  - (https://creativecommons.org/licenses/by-sa/4.0/)
+Creative Commons  - (https://creativecommons.org/licenses/by-sa/4.0/)
 .SH AUTHOR
 Adam Danischewski (adam.danischewski@protonmail.com)

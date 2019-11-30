@@ -5,8 +5,8 @@
 ## Author: Adam Michael Danischewski     
 ## GitHub: https://github.com/AdamDanischewski/cf
 ## Created: 2019-11-12
-## Version: v1.04
-## Last Modified: 2019-11-24
+## Version: v1.05
+## Last Modified: 2019-11-30
 ## Issues: If you find any issues emai1 me at <my first name> (dot) 
 ##         <my last name> (at) gmail (dot) com. 
 ## 
@@ -139,7 +139,7 @@ USAGE=$(cat<<EOF
           ~/.config/cf/cf_user.conf
  
   ${USAGE_COLOR3}Note: You are encouraged to script your own aliases/functions w/cf.${ENDCOLOR}  
-        ${USAGE_COLOR5} Eg. /bin/ls | cf   
+        ${USAGE_COLOR5} Eg. printf "%s\\\\n" *|cf
          Eg. find "\$(pwd)" -maxdepth 1 -type f -printf "%T@\\\\t%Tc %f\\\\n" \\ 
              2>/dev/null|sort -n|cut -f 2-|tail -50|cf${ENDCOLOR}
              
