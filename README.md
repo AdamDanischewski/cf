@@ -13,5 +13,5 @@ Or, if you use Debian/Ubuntu you can use the packaged [deb](https://github.com/A
 #### Man page:
 ![cf man page](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_man_ss_1.png)
 
-#### Screenshot: 
+#### Out of the Box Defaults - Screenshot: 
 ![cf ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_ss_1.png)
