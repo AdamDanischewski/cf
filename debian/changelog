@@ -1,3 +1,8 @@
+cf (1.0-10) unstable; urgency=low
+
+  * Updated man pages.
+  * Initial release (Closes IPT: #945373)
+
 cf (1.0-9) unstable; urgency=low
 
   * Updated copyright formatting on man pages, added colorization to
