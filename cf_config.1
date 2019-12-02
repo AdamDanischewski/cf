@@ -35,7 +35,7 @@ cf colors piped file names by file extension according to their respective
 .br
 colormap entry in the system-wide or user defined cf config file. 
 .PP
-The main program is /usr/bin/colorfiles, the system-wide default config 
+The main program is /usr/lib/colorfiles, the system-wide default config 
 .br
 file is read first and thereafter - if a user config file exists - it
 .br
@@ -99,7 +99,7 @@ is read second.
 .br
 
 .br
-The following functionalities can be turned off by setting its 
+The following functionalities can be turned off by setting their 
 .br
 respective lookup value to the empty string: eg. colormap["dir"]="" 
 .br
@@ -127,11 +127,11 @@ respective lookup value to the empty string: eg. colormap["dir"]=""
 .br
 * Files ending with a "/" are treated as a directory and 
 .br
-  colored according to the colormap["dirs"] entry
+  colored according to the colormap["dir"] entry
 .br
 
 .br
-The aforementioned above functionalities, except dir, also have a 
+The aforementioned above functionalities, except "dir", also have a 
 .br
 respective fallback entry prefixed with "fb_". For instance - 
 .br
@@ -187,13 +187,13 @@ want to set the mappings once per run so don't remove them.
 .I /etc/cf/cf_default.conf
 .\".RS
 .sp .01i
-Default system wide configuration file.
+ Default system wide configuration file.
 .\".RE 
 .sp .25i
 .I ~/.config/cf/cf_user.conf
 .\".RS
 .sp .01i
-User configuration file. 
+ User configuration file. 
 .\".RE
 .SH "SEE ALSO"
 .RI
@@ -201,10 +201,12 @@ cf(1)
 .SH BUGS
 Extensions with spaces are problematic. 
 .br 
-No known bugs. Report Bugs to adam.danischewski@protonmail.com
+No known bugs. Report requests, issues and bugs to: 
+.br
+ https://github.com/AdamDanischewski/cf/issues 
 .SH COPYRIGHT
 Copyright ©2019 Adam Danischewski, CC BY-SA 4.0
 .br
 Creative Commons  - (https://creativecommons.org/licenses/by-sa/4.0/)
 .SH AUTHOR
-Adam Danischewski (adam.danischewski@protonmail.com)
+Adam Danischewski <adam.danischewski@protonmail.com>
