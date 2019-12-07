@@ -1,0 +1,3 @@
+version=4
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/cf-$1\.tar\.gz/ \
+  https://github.com/AdamDanischewski/cf/tags .*/v?(\d\S+)\.tar\.gz

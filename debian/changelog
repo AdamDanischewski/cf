@@ -1,3 +1,10 @@
+cf (1.0-11) unstable; urgency=low
+
+  * Fixed spelling error in man page.
+  * Colorized install script.
+  * Added watch file.
+  * Initial release (Closes IPT: #945373)
+
 cf (1.0-10) unstable; urgency=low
 
   * Updated man pages.
