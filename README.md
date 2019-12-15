@@ -5,8 +5,19 @@
 
 #### Installation: 
 You can install cf via the included `install.bsh`.<br>
+> To install, clone the repository and run: 
+```shell 
+$> ./install.bsh
+```
+> To remove, run: 
+```shell
+$> ./install -R 
+```
 Or, if you use Debian/Ubuntu you can use the packaged [deb](https://github.com/AdamDanischewski/cf/raw/debian/cf_head_all.deb).
-
+> Download the latest packaged deb, make sure you are in the same directory as the downloaded deb and run: 
+```shell 
+$> sudo dpkg -i cf_head_all.deb
+```
 #### Usage: 
 ![cf usage ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_usage_ss_1.png)
 
