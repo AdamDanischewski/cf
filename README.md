@@ -2,6 +2,14 @@
 
 # cf 
 ### cf custom colors piped filenames w/Truecolor sRGB 
+#### Usage: 
+![cf usage ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_usage_ss_1.png)
+
+#### Man page:
+![cf man page](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_man_ss_1.png)
+
+#### Out of the Box Defaults - Screenshot: 
+![cf ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_ss_1.png)
 
 #### Installation: 
 You can install cf via the included `install.bsh`.<br>
@@ -11,18 +19,10 @@ $> ./install.bsh
 ```
 > To remove, run: 
 ```shell
-$> ./install -R 
+$> ./install.bsh -R 
 ```
 Or, if you use Debian/Ubuntu you can use the packaged [deb](https://github.com/AdamDanischewski/cf/raw/debian/cf_head_all.deb).
 > Download the latest packaged deb, make sure you are in the same directory as the downloaded deb and run: 
 ```shell 
 $> sudo dpkg -i cf_head_all.deb
 ```
-#### Usage: 
-![cf usage ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_usage_ss_1.png)
-
-#### Man page:
-![cf man page](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_man_ss_1.png)
-
-#### Out of the Box Defaults - Screenshot: 
-![cf ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_ss_1.png)
