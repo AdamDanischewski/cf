@@ -5,12 +5,12 @@
 cf_config \- cf configuration files
 .SH SYNOPSIS
 .PP
-cf utilizes a system wide config file and optionally a user defined   
+cf utilizes a system-wide config file and optionally a user-defined   
 .br 
 config file. 
 .br
 
-The system wide defaults may be changed by editing: 
+The system-wide default config file is located at: 
 .br 
 .BI 
 .I /etc/cf/cf_default.conf
@@ -18,28 +18,32 @@ The system wide defaults may be changed by editing:
 
 .br
 
-Users can override system wide definitions by editing the user-defined  
+The user-defined config file is located at:
 .br
-config file, located at: 
 .I ~/.config/cf/cf_user.conf
 .br 
 
-To start customizing first create a user config file using: cf -C
+Both may be edited. 
+.br
+
+To start customizing for a user first create a config file using: cf --create
 .br 
 .SH DESCRIPTION
 .PP
-.br 
-cf colorizes mapped file extensions to a Truecolor sRGB triplet.  
+\fBcf\fP colors piped file names to a Truecolor sRGB triplet - by file extension 
+.br
+or optionally specialized logic for hidden, links, directories and executables - 
+.br
+according to their respective colormap entry in the system-wide or user-defined 
+.br
+\fBcf\fP config file. 
+.br
 .PP
-cf colors piped file names by file extension according to their respective 
+The main program is \fI/usr/lib/colorfiles\fP, the system-wide default config 
 .br
-colormap entry in the system-wide or user defined cf config file. 
-.PP
-The main program is /usr/lib/colorfiles, the system-wide default config 
+file is read first and thereafter - if a user-defined config file exists - 
 .br
-file is read first and thereafter - if a user config file exists - it
-.br
-is read second. 
+it is read second. Therefore, user-defined config settings take precedence.
 .br
 
 .br
@@ -53,27 +57,29 @@ is read second.
 .br
 * For previously defined colormap["ext"] entries you may utilize any 
 .br
-  existing uncommented entries in this file or in the system-wide 
+  existing uncommented entries in the user or system-wide config file 
 .br
-  default config file without redeclaring their initialization. For 
+  without redeclaring their initialization. For convenience all system 
 .br
-  convenience all system default values are included in commented form.  
+  default values are included in commented form at the creation of a new
+.br 
+  user config file (via \fBcf --create\fP). Any system-wide color mappings after 
 .br
-  Any system-wide color mappings after the user-defined config file was 
+  the user-defined config file was generated will not be present in the 
 .br
-  generated will not be present in the user config file. If you add a 
+  user config file. If you add a default related to a new system-wide 
 .br
-  default related to a new system-wide default entry it's recommended 
+  default entry it's recommended that you add a comment containing the 
 .br
-  that you add a comment containing the associated sRGB triplet value 
+  associated sRGB triplet value.  
 .br
 
 .br
-* File extensions must be lowercase. cf uses case insensitive 
+* File extensions must be lowercase. \fBcf\fP uses case insensitive 
 .br
-  matching that relies on lowercasing file extensions. file.JpG and 
+  matching that relies on lowercasing file extensions. 
 .br
-  file.jpg both match colormap["jpg"]
+  file.JpG -and- file.jpg both match colormap["jpg"]
 .br
 
 .br
@@ -83,19 +89,19 @@ is read second.
 .br
   penultimate component exists is up to 5 characters long. 
 .br
-  For example - if you have colormap["abcde.12345"]; a file named 
+  For example - if you have a colormap entry colormap["abcde.12345"] then  
 .br
-  testing.abcde.12345 would match that colormap entry. A file named 
+  a file named testing.abcde.12345 would match that colormap entry. 
 .br
-  testing.abcdef.1234 would match colormap["1234"]. A file named 
+  A file named testing.abcdef.1234 would match colormap["1234"]. 
 .br
-  testing.a.12345678  would have a colormap hit on colormap["12345678"] 
+  A file named testing.a.12345678 would match colormap["12345678"]. 
 .br
 
 .br
 * If no penultimate component exists the file extension may be up to 
 .br
-  10 characters long. file.ABCDE12345 matches colormap["abcde12345"] 
+  10 characters long. file.ABCDE12345 matches colormap["abcde12345"]. 
 .br
 
 .br
@@ -145,11 +151,11 @@ already been found. The precedence order for fallback logic is
 executables then hidden then links. 
 .br   
 .SH TIPS 
-You may run cf without options or anything piped in to start a 
+You may run \fBcf\fP without options or anything piped in to start a 
 .br  
 session that will echo back colorings to whatever filenames you type 
 .br  
-in. This is useful while configuring your custom cf_user.conf file. 
+in. This is useful while configuring your custom \fIcf_user.conf\fP file. 
    
 .SH CAVEATS
 When editing config files make sure that you don't turn off a 
@@ -181,6 +187,11 @@ The 'BEGIN {' starting at the top and '}' at the end of the config
 files are necessary. This is ultimately an awk program and we only 
 .br
 want to set the mappings once per run so don't remove them. 
+.br 
+.PP 
+To restore the system-wide default config backup the file to a secure 
+.br
+known location and copy it back when desired -or- reinstall cf. 
 .br
     
 .SH FILES

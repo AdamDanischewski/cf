@@ -7,21 +7,49 @@ cf \- colors filenames via pipe
 cf  [-?|-h|-ls|-A|-R|-C|-V]
 .SH DESCRIPTION
 .PP
-cf improves the commandline user experience by adding extensive filename 
+.B
+cf 
+improves the commandline user experience by adding extensive filename 
 .br 
-coloring capabilities via pipelines. cf colorizes mapped file extensions 
+coloring capabilities via pipelines. \fBcf\fP colorizes mapped file extensions
 .br 
-to a Truecolor sRGB triplet.  
-.PP
-cf colors piped file names by file extension according to their respective 
+to a Truecolor sRGB triplet - maintaining consistency across environments.
+
+Additionally \fBcf\fP utilizes the \fIls -F\fP classification option 
+format to determine 
 .br
-colormap["ext"] entry in the system-wide or user defined cf config file. 
-.PP
-cf can be used in with find/ls commands in pipelines. 
-.PP 
-If you get used to using cf you will likely find it very difficult to 
+whether a file is hidden, directory, executable or symbolic link for specialized 
+.br
+coloring capabilities including fallback coloring (See
+\fIcf_config(1)\fP). To 
+.br
+maximize the utility of \fBcf\fP's coloring capabilities make sure that your 
 .br 
-imagine not using cf!!
+pipelines format filenames accordingly. See the \fIExamples\fP section in this man 
+.br
+page for an example on coloring \fIfind\fP to the 
+.I
+ls -F 
+classification format. 
+.br
+
+.PP
+\fBcf\fP colors piped file names by file extension or specialized logic according 
+.br
+to their respective \fIcolormap["ext"]\fP entry in the system-wide or user-defined 
+.br
+\fBcf\fP config file.
+.br
+
+\fBcf\fP is fairly quick and efficient. Unlike \fIls\fP, which uses the LS_COLORS env 
+.br 
+variable for determining colors, \fBcf\fP uses hash table lookups in \fIawk\fP resulting
+.br 
+in a much quicker and efficient color mapping. \fIls\fP in contrast incurs a perfor-
+.br 
+mance hit of reading the entire LS_COLORS string for each coloring miss. Also 
+.br 
+\fIls\fP is constrained by ARG_MAX/MAX_ARG_* limits on argument list whereas \fBcf\fP is not. 
 .br
 .SH OPTIONS
 .IP -?|-h 15n
@@ -44,9 +72,9 @@ imagine not using cf!!
 - alias ls='_(){ /bin/ls -F -1 -A "$@"|cf|column;};_'
 .SH EXAMPLES 
 .PP
-The following mimics /bin/ls -F (classify) that cf utilizes to determine how 
+The following mimics \fI/bin/ls -F\fP (classify) that \fBcf\fP utilizes to determine how 
 .br 
-to color special files (links, directories and executables):  
+to color special files (hidden, links, directories and executables):  
 .sp .09i
  find . -maxdepth 1 \\( -type l -printf "%f@\\n" -o -type d -printf "%f/\\n" \\ 
         -o -executable -printf "%f*\\n" -o -printf "%f\\n" \\)|cf
@@ -58,6 +86,15 @@ shell (eg. Bash/Zsh):
 .sp .09i
  printf "%s\\n" *|cf      
 .br
+.SH CAVEATS
+\fBcf\fP colorizes the rightmost filename, which causes a potential variation between
+.br
+links that end with \fI@\fP versus expanded links (\fIls -a\fP) containing \fI->\fP. That is the 
+.br
+intended behavior.
+.br
+
+If you get used to using \fBcf\fP you will likely find it difficult not to!!
 .SH FILES
 .I /etc/cf/cf_default.conf
 .\".RS

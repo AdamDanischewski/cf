@@ -5,8 +5,8 @@
 ## Author: Adam Michael Danischewski     
 ## GitHub: https://github.com/AdamDanischewski/cf
 ## Created: 2019-11-12
-## Version: v1.05
-## Last Modified: 2019-11-30
+## Version: v1.06
+## Last Modified: 2019-12-14
 ## Issues: If you find any issues emai1 me at <my first name> (dot) 
 ##         <my last name> (at) gmail (dot) com. 
 ## 
@@ -78,7 +78,7 @@ if expr "X$1" : 'X-[-]*'>"$DISCARD_DEV"; then
    printf "${USAGE_COLOR2}%s${ENDCOLOR}\n" "Writing ${USER_CF_CONFIG} ..."
    ERROR_MESG=$("$SED_PROG" '1!{$!s/^\([^#]*\)\(colormap.*\)/#&/}' "${DEFAULT_CF_CONFIG}" 2>&1 > "$USER_CF_CONFIG")
    if (($?==0)); then 
-    printf "${USAGE_COLOR3}%s${ENDCOLOR}\n" "Done! Manually edit ${USER_CF_CONFIG} according to your preferences." 
+    printf "${USAGE_COLOR5}%s${ENDCOLOR}\n" "Done! Manually edit ${USER_CF_CONFIG} according to your preferences." 
    else 
     printf "${ERROR_COLOR}%s${ENDCOLOR}\n" "*** Error: Could not write ${USER_CF_CONFIG}" 
     printf "${ERROR_COLOR}%s${ENDCOLOR}\n" "Error mesg: ${ERROR_MESG}" 

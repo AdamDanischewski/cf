@@ -1,3 +1,11 @@
+cf (1.0-12) unstable; urgency=low
+
+  * Edited man pages.
+  * Changed colorization for user config generation success.
+  * Initial release (Closes IPT: #945373)
+
+ -- Adam Danischewski <adam.danischewski@protonmail.com>  Sun, 15 Dec 2019 17:16:28 -0500
+
 cf (1.0-11) unstable; urgency=low
 
   * Fixed spelling error in man page.
@@ -5,10 +13,14 @@ cf (1.0-11) unstable; urgency=low
   * Added watch file.
   * Initial release (Closes IPT: #945373)
 
+ -- Adam Danischewski <adam.danischewski@protonmail.com>  Thu, 12 Dec 2019 17:36:28 -0500
+
 cf (1.0-10) unstable; urgency=low
 
   * Updated man pages.
   * Initial release (Closes IPT: #945373)
+
+ -- Adam Danischewski <adam.danischewski@protonmail.com>  Sat, 30 Nov 2019 21:36:28 -0500
 
 cf (1.0-9) unstable; urgency=low
 
