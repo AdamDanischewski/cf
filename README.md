@@ -2,6 +2,15 @@
 
 # cf 
 ### cf custom colors piped filenames w/Truecolor sRGB 
+cf improves the commandline user experience by adding extensive filename
+coloring capabilities via pipelines. cf colorizes mapped file extensions
+to a Truecolor sRGB triplet - maintaining consistency across environments.
+
+cf is fast and efficient and works out-of-the-box with colorful presets.
+
+To get started using `cf` - just install and run `cf -A` to add an `ls` alias, 
+run `cf -C` to create a user config file and customize as you wish. 
+
 #### Usage: 
 ![cf usage ss](https://raw.githubusercontent.com/AdamDanischewski/cf/assets/cf_usage_ss_1.png)
 
